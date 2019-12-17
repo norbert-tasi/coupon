@@ -24,7 +24,6 @@ describe('CouponResultDisplayComponent', () => {
     fixture = TestBed.createComponent(CouponResultDisplayComponent);
     component = fixture.componentInstance;
     service = TestBed.get(CouponService);
-    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -39,8 +38,6 @@ describe('CouponResultDisplayComponent', () => {
   });
 
   it('should display gratulations if coupon is valid', () => {
-    fixture = TestBed.createComponent(CouponResultDisplayComponent);
-    component = fixture.componentInstance;
     service.latest = { valid: true, activated: new Date(), msg: null };
     fixture.detectChanges();
 
@@ -49,8 +46,6 @@ describe('CouponResultDisplayComponent', () => {
   });
 
   it('should display error pane if coupon is not valid', () => {
-    fixture = TestBed.createComponent(CouponResultDisplayComponent);
-    component = fixture.componentInstance;
     service.latest = { valid: false, activated: new Date(), msg: null };
     fixture.detectChanges();
     const div = fixture.nativeElement.querySelector('h3');
