@@ -1,0 +1,42 @@
+<div class="uk-container uk-flex uk-flex-middle uk-flex-center" uk-height-viewport>
+    <ng-container *ngTemplateOutlet="!service.latest ? default : service.latest.valid ? valid : invalid"></ng-container>
+</div>
+
+<ng-template #default>
+    <div class="uk-placeholder uk-text-center">Please enter your coupon first</div>
+</ng-template>
+
+<ng-template #valid>
+    <div class="uk-card uk-card-default uk-width-1-2@m uk-box-shadow-large" uk-card>
+        <div class="uk-card-header">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-width-expand uk-text-center">
+                    <h3 class="uk-card-title uk-margin-remove-bottom">Congrats! You won!</h3>
+                </div>
+            </div>
+        </div>
+        <div class="uk-card-body uk-text-center">
+            <span uk-icon="icon: check; ratio: 3.5"></span>
+        </div>
+    </div>
+</ng-template>
+<ng-template #invalid>
+    <div class="uk-card uk-card-default uk-width-1-2@m uk-box-shadow-large" uk-card>
+        <div class="uk-card-header">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-width-expand uk-text-center">
+                    <h3 class="uk-card-title uk-margin-remove-bottom">Oops!</h3>
+                </div>
+            </div>
+        </div>
+        <div class="uk-card-body uk-text-center">
+            <span uk-icon="icon: ban; ratio: 3.5"></span>
+        </div>
+        <div class="uk-card-footer uk-text-danger">
+            <span>{{service.latest.msg}}</span>
+            <span *ngIf="service.latest.activated"
+                class="uk-text-bold uk-margin-small-left">{{service.latest.activated | elapsedTime}}</span>
+        </div>
+    </div>
+
+</ng-template>

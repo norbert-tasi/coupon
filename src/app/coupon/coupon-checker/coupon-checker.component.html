@@ -1,0 +1,14 @@
+<div class="uk-container uk-flex uk-flex-middle uk-flex-center" uk-height-viewport>
+    <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-box-shadow-large uk-width-1-2@m uk-text-center">
+        <h3 class="uk-card-title">Enter coupon code to win</h3>
+        <div [formGroup]="form">
+            <div class="uk-margin">
+                <div class="uk-inline">
+                    <button class="uk-button-primary uk-form-icon uk-form-icon-flip" [disabled]="!form.valid || busy"
+                        (click)="doCheck()">GO</button>
+                    <input class="uk-input" type="text" formControlName="code" (keyup.enter)="doCheck()">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
